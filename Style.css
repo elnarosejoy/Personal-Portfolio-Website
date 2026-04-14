@@ -1,0 +1,124 @@
+:root {
+    --bg: #fdfdfd;
+    --accent: #2d5a27;
+    --accent-light: #eef7ee;
+    --text-main: #1a1c1a;
+    --text-dim: #5a635a;
+    --border: rgba(45, 90, 39, 0.1);
+}
+
+/* Base Setup */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Background Gradients */
+.bg-blur { position: fixed; border-radius: 50%; z-index: -1; filter: blur(100px); opacity: 0.5; }
+.blur-1 { top: -10%; right: -5%; width: 50vw; height: 50vw; background: #d4e9d4; }
+.blur-2 { bottom: -10%; left: -5%; width: 40vw; height: 40vw; background: #e8f3e8; }
+
+/* Sticky Navigation */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 10%; position: fixed; width: 100%; top: 0; z-index: 100;
+    backdrop-filter: blur(15px); background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid var(--border);
+}
+.logo { font-weight: 800; color: var(--accent); font-size: 1.2rem; letter-spacing: -1px; }
+.nav-links a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+
+/* Animation Classes */
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.2, 0.6, 0.35, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Hero Section */
+#hero { height: 100vh; display: flex; align-items: center; padding: 0 10%; gap: 50px; }
+.hero-text { flex: 1.2; }
+h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; margin: 1.2rem 0; }
+.outline-text { color: transparent; -webkit-text-stroke: 1.5px var(--accent); transition: 0.5s; cursor: default; }
+.outline-text:hover { color: var(--accent); }
+
+.hero-description p { font-size: 1.2rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1rem; max-width: 600px; }
+.hero-description strong { color: var(--accent); font-weight: 600; }
+.badge { background: var(--accent-light); color: var(--accent); padding: 6px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+
+.hero-img-box { 
+    flex: 0.8; height: 500px; border-radius: 40px; overflow: hidden; 
+    border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.06); 
+}
+.hero-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Projects Grid Layout */
+#projects { padding: 100px 10%; background: white; }
+.section-title { font-family: 'Syne', sans-serif; font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+
+.project-card { 
+    background: var(--bg); border: 1px solid var(--border); 
+    border-radius: 25px; overflow: hidden; 
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+    display: flex; flex-direction: column; cursor: default;
+}
+.project-card:hover { 
+    transform: translateY(-12px); border-color: var(--accent); 
+    box-shadow: 0 30px 60px rgba(45, 90, 39, 0.12); 
+}
+
+.project-img { height: 220px; overflow: hidden; }
+.project-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.project-card:hover .project-img img { transform: scale(1.08); }
+
+/* Centralized Resume Generator Style */
+.project-card.no-visual { 
+    justify-content: center; align-items: center; 
+    min-height: 380px; background: var(--accent-light); 
+    padding: 2.5rem; text-align: center;
+}
+.project-card.no-visual .project-content {
+    display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;
+}
+.project-card.no-visual h3 { color: var(--accent); font-size: 1.8rem; margin: 1rem 0; }
+.project-card.no-visual p { max-width: 280px; margin: 0 auto; line-height: 1.6; }
+
+.project-content { padding: 1.5rem; }
+.project-content h3 { font-size: 1.3rem; margin: 0.5rem 0; }
+.project-content span { color: var(--accent); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; }
+.project-content p { color: var(--text-dim); font-size: 0.9rem; }
+
+/* Skills Grid Style */
+#skills { padding: 100px 10%; background: #fdfdfd; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+.skill-category { background: white; padding: 2.5rem 2rem; border-radius: 25px; border: 1px solid var(--border); text-align: center; transition: 0.3s; }
+.skill-category:hover { border-color: var(--accent); transform: translateY(-5px); }
+.category-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.skill-category h3 { color: var(--accent); font-size: 1.1rem; margin-bottom: 1rem; font-family: 'Syne', sans-serif; }
+.skill-category ul { list-style: none; color: var(--text-dim); font-size: 0.9rem; }
+
+/* Contact Styling */
+#contact { padding: 120px 10%; text-align: center; }
+.contact-group { margin-bottom: 1.5rem; }
+.email-link { font-family: 'Syne', sans-serif; font-size: clamp(1.2rem, 4vw, 2.5rem); color: var(--accent); text-decoration: none; font-weight: 800; transition: 0.3s; }
+.email-link:hover { color: var(--text-main); }
+
+.social-links { margin-top: 1rem; display: flex; justify-content: center; align-items: center; gap: 1.5rem; }
+.social-item { color: var(--text-dim); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: 0.3s; border-bottom: 2px solid transparent; }
+.social-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.dot { color: var(--border); font-weight: bold; }
+
+/* Global Buttons & Footer */
+.btn-main { display: inline-block; margin-top: 1.5rem; background: var(--accent); color: white; padding: 1rem 2.2rem; text-decoration: none; font-weight: 700; border-radius: 50px; transition: 0.3s; }
+.btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(45, 90, 39, 0.2); }
+
+footer { padding: 40px; text-align: center; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border); }
+
+@media (max-width: 900px) {
+    #hero { flex-direction: column; text-align: center; height: auto; padding-top: 150px; }
+    .hero-img-box { width: 100%; height: 400px; }
+    .nav-links { display: none; }
+}

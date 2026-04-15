@@ -1,5 +1,4 @@
-# OIBSIP web development and designing_taskno2
-🔹 Personal Portfolio Website
+# 🔹 Personal Portfolio Website
 
 Created a dynamic and visually appealing portfolio to showcase my skills, projects, and contact details. Implemented modern UI techniques like split-screen design, animations, and responsive layout.
 
@@ -9,7 +8,7 @@ In a personal portfolio, you get to show a wide range of samples and skills and 
 - Split-screen design
 - Smooth animations and hover effects
 - Sections: About, Skills, Projects, Contact
-- Professional layout
+- Professional layout 
 
 ## ⚙️ Steps Performed
 
